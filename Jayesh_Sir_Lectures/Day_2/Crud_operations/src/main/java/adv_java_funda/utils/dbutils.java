@@ -9,7 +9,9 @@ public class dbutils {
     private static final String DB_PASS = "";
 
     public static Connection getConnection() throws SQLException {
-        try(Connection connection = DriverManager.getConnection(DB_URL,DB_USER,DB_PASS)){
+        Connection connection=null;
+        try{
+            connection = DriverManager.getConnection(DB_URL,DB_USER,DB_PASS);
             return connection;
         }catch (Exception e){
             e.printStackTrace();
