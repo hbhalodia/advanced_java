@@ -20,18 +20,6 @@ public class App {
                 System.out.println("Please check the Credential and try again");
             }
 
-//            String sql = "select * from students";
-//            PreparedStatement prepStat = conn.prepareStatement(sql);
-//
-//            ResultSet res = prepStat.executeQuery();
-//
-//            while(res.next()){
-//                System.out.println("|-----------------------------------------------------|");
-//                System.out.println("    Roll No : "+res.getString("roll_no"));
-//                System.out.println("    Name : "+res.getString("name"));
-//                System.out.println("    Email : "+res.getString("email"));
-//                System.out.println("|-----------------------------------------------------|");
-//            }
         }catch(Exception e ){
             System.err.println("Error While Connecting DB");
             e.printStackTrace();
