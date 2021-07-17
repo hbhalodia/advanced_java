@@ -8,6 +8,17 @@ public class dbutils {
     private static final String DB_USER = "root";
     private static final String DB_PASS = "";
 
+    private static final String DB_CREATE = "insert into students (roll_no,name,email) values (?,?,?)";
+    private static final String DB_SELECT = "select * from students";
+
+    public static String create_sql_query(){
+        return DB_CREATE;
+    }
+
+    public static String select_sql_query(){
+        return DB_SELECT;
+    }
+
     public static Connection getConnection() throws SQLException {
         Connection connection=null;
         try{
@@ -34,5 +45,15 @@ public class dbutils {
         PreparedStatement prepStat = connection.prepareStatement(sql);
 
         return prepStat.executeQuery();
+    }
+
+    public static void print_all(ResultSet res) throws SQLException {
+        while(res.next()){
+            System.out.println("|--------------------------------------------------------|");
+            System.out.println("|   Name : "+ res.getString("name"));
+            System.out.println("|   Email : "+res.getString("email"));
+            System.out.println("|   Roll : "+res.getString("roll_no"));
+            System.out.println("|--------------------------------------------------------|");
+        }
     }
 }
