@@ -9,6 +9,10 @@ public class Student {
     private int rollNo;
     private String email;
 
+    public Student(){
+
+    }
+
     @Autowired  // 1. Dependency Injection using Annotation using Autowired.
     private Subject sub;
 
