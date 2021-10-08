@@ -24,4 +24,14 @@ public class SubjectController {
     public SubjectResponse getSubject(@PathVariable("id") Long id ) {
         return subjectDao.read(id);
     }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public SubjectResponse updateSubject(@PathVariable("id") Long id, @RequestBody SubjectModel model) {
+        return subjectDao.update(id, model);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public SubjectResponse deleteSubject(@PathVariable("id") Long id){
+        return subjectDao.delete(id);
+    }
 }

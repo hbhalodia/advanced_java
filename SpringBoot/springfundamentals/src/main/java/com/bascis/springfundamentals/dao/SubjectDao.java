@@ -8,4 +8,8 @@ public interface SubjectDao {
     public SubjectResponse save(SubjectModel model);
 
     public SubjectResponse read(Long id);
+
+    public SubjectResponse update(Long id, SubjectModel model);
+
+    public SubjectResponse delete(Long id);
 }

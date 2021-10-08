@@ -34,4 +34,25 @@ public class SubjectDaoImpl implements SubjectDao {
         return new SubjectResponse(ApiStatus.SUCESS, HttpStatus.OK.value(), ModelEntityConvertor.convertSubjectEntityToModel(subEntity.get()));
 
     }
+
+    @Override
+    public SubjectResponse update(Long id, SubjectModel model) {
+        Optional<ESubject> savedEntity = subjectRepository.findById(id);
+
+        savedEntity.get().setSubCode(model.getSubCode());
+        savedEntity.get().setName(model.getName());
+
+        return new SubjectResponse(ApiStatus.SUCESS, HttpStatus.OK.value(), ModelEntityConvertor.convertSubjectEntityToModel(savedEntity.get()));
+
+    }
+
+    @Override
+    public SubjectResponse delete(Long id) {
+
+        Optional<ESubject> deletedEntity = subjectRepository.findById(id);
+        subjectRepository.deleteById(id);
+
+        return new SubjectResponse(ApiStatus.SUCESS, HttpStatus.OK.value(), ModelEntityConvertor.convertSubjectEntityToModel(deletedEntity.get()));
+
+    }
 }
